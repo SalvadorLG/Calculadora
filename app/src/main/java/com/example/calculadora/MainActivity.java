@@ -4,94 +4,223 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText pantallaOperaiones;
-    private EditText pantallaOperaiones2;
-    private TextView id_respuesta;
-    private Button id_porcentaje;
-    private Button id_suma;
-    private Button id_resta;
-    private Button id_multiplicacion;
-    private Button id_divicion;
-    private Button id_potencia;
+    private Button btnCero, btnUno, btnDos, btnTres, btnCuatro, btnCinco, btnSeis, btnSiete, btnOcho, btnNueve,
+            btnSuma, btnResta, btnMultiplica, btnDivide, btnIgual, btnClean, btnPotencia, btnPorcentaje;
+    private TextView Resultado;
+    double resultado;
+    String operador, mostrar , reserva;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pantallaOperaiones = (EditText) findViewById(R.id.pantallaOperaciones);
-        pantallaOperaiones2 = (EditText) findViewById(R.id.pantallaOperaciones2);
-        id_respuesta = (TextView) findViewById(R.id.id_respuesta);
-        id_porcentaje = (Button) findViewById(R.id.id_porcentaje);
-        id_suma = (Button) findViewById(R.id.id_suma);
-        id_resta = (Button) findViewById(R.id.id_resta);
-        id_multiplicacion = (Button) findViewById(R.id.id_multiplicacion);
-        id_divicion = (Button) findViewById(R.id.id_divicion);
-        id_potencia = (Button) findViewById(R.id.id_potencia);
+        btnCero = (Button)findViewById(R.id.btnCero);
+        btnUno = (Button)findViewById(R.id.btnUno);
+        btnDos = (Button)findViewById(R.id.btnDos);
+        btnTres = (Button)findViewById(R.id.btnTres);
+        btnCuatro = (Button)findViewById(R.id.btnCuatro);
+        btnCinco = (Button)findViewById(R.id.btnCinco);
+        btnSeis = (Button)findViewById(R.id.btnSeis);
+        btnSiete = (Button)findViewById(R.id.btnSiete);
+        btnOcho = (Button)findViewById(R.id.btnOcho);
+        btnNueve = (Button)findViewById(R.id.btnNueve);
+        btnSuma = (Button)findViewById(R.id.btnSuma);
+        btnResta = (Button)findViewById(R.id.btnResta);
+        btnMultiplica = (Button)findViewById(R.id.btnMultiplicacion);
+        btnDivide = (Button)findViewById(R.id.btnDivide);
+        btnPorcentaje = (Button)findViewById(R.id.btnPorcentaje);
+        btnPotencia = (Button)findViewById(R.id.btnPotencia);
+        Resultado = (TextView)findViewById(R.id.Resultado);
+        btnClean = (Button)findViewById(R.id.btnClean);
+        btnIgual = (Button)findViewById(R.id.btnIgual);
+        btnClean = (Button)findViewById(R.id.btnClean);
 
-        id_suma.setOnClickListener(new View.OnClickListener() {
+        btnCero.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf(numero_1 + numero_2);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "0";
+                Resultado.setText(mostrar);
             }
         });
-        id_resta.setOnClickListener(new View.OnClickListener() {
+
+        btnUno.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf(numero_1 - numero_2);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "1";
+                Resultado.setText(mostrar);
             }
         });
-        id_multiplicacion.setOnClickListener(new View.OnClickListener() {
+
+        btnDos.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf(numero_1 * numero_2);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "2";
+                Resultado.setText(mostrar);
             }
         });
-        id_divicion.setOnClickListener(new View.OnClickListener() {
+
+        btnTres.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf(numero_1 / numero_2);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "3";
+                Resultado.setText(mostrar);
             }
         });
-        id_potencia.setOnClickListener(new View.OnClickListener() {
+
+        btnCuatro.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf(numero_1 ^ numero_2);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "4";
+                Resultado.setText(mostrar);
             }
         });
-        id_porcentaje.setOnClickListener(new View.OnClickListener() {
+
+        btnCinco.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                int numero_1 = Integer.parseInt(String.valueOf(pantallaOperaiones.getText()));
-                int numero_2 = Integer.parseInt(String.valueOf(pantallaOperaiones2.getText()));
-                String respuesta = String.valueOf((numero_2/100)*numero_1);
-                id_respuesta.clearComposingText();
-                id_respuesta.setText(respuesta);
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "5";
+                Resultado.setText(mostrar);
             }
         });
+
+        btnSeis.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "6";
+                Resultado.setText(mostrar);
+            }
+        });
+
+        btnSiete.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "7";
+                Resultado.setText(mostrar);
+            }
+        });
+
+        btnOcho.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "8";
+                Resultado.setText(mostrar);
+            }
+        });
+
+        btnNueve.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "9";
+                Resultado.setText(mostrar);
+            }
+        });
+
+        btnSuma.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "+";
+                Resultado.setText("");
+            }
+        });
+
+        btnResta.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "-";
+                Resultado.setText("");
+            }
+        });
+
+        btnMultiplica.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "*";
+                Resultado.setText("");
+            }
+        });
+
+        btnDivide.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "/";
+                Resultado.setText("");
+            }
+        });
+        btnPotencia.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "^";
+                Resultado.setText("");
+            }
+        });
+        btnPorcentaje.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                reserva = Resultado.getText().toString();
+                operador = "%";
+                Resultado.setText("");
+            }
+        });
+
+        btnClean.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mostrar = "";
+                Resultado.setText(mostrar);
+                reserva = "";
+                operador = "";
+            }
+        });
+
+        btnIgual.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mostrar = Resultado.getText().toString();
+                mostrar = mostrar + "1";
+                if(operador.equals("-")){
+                    resultado = Double.parseDouble(reserva) - Double.parseDouble(Resultado.getText().toString());
+                    Resultado.setText(String.valueOf(resultado));
+                }
+                if(operador.equals("+")){
+                    resultado = Double.parseDouble(reserva) + Double.parseDouble(Resultado.getText().toString());
+                    Resultado.setText(String.valueOf(resultado));
+                }
+                if(operador.equals("/")){
+                    resultado = Double.parseDouble(reserva) / Double.parseDouble(Resultado.getText().toString());
+                    Resultado.setText(String.valueOf(resultado));
+                }
+                if(operador.equals("*")){
+                    resultado = Double.parseDouble(reserva) * Double.parseDouble(Resultado.getText().toString());
+                    Resultado.setText(String.valueOf(resultado));
+                }
+                if(operador.equals("^")){
+                    resultado = Math.pow(Double.parseDouble(reserva),Double.parseDouble(Resultado.getText().toString()));
+                    Resultado.setText(String.valueOf(resultado));
+                }
+                if(operador.equals("%")){
+                    resultado = (Double.parseDouble(Resultado.getText().toString())/100) * Double.parseDouble(reserva);
+                    Resultado.setText(String.valueOf(resultado));
+                }
+            }
+        });
+
     }
 }
