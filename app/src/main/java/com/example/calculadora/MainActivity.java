@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -193,31 +194,36 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                mostrar = Resultado.getText().toString();
-                mostrar = mostrar + "1";
-                if(operador.equals("-")){
-                    resultado = Double.parseDouble(reserva) - Double.parseDouble(Resultado.getText().toString());
-                    Resultado.setText(String.valueOf(resultado));
-                }
-                if(operador.equals("+")){
-                    resultado = Double.parseDouble(reserva) + Double.parseDouble(Resultado.getText().toString());
-                    Resultado.setText(String.valueOf(resultado));
-                }
-                if(operador.equals("/")){
-                    resultado = Double.parseDouble(reserva) / Double.parseDouble(Resultado.getText().toString());
-                    Resultado.setText(String.valueOf(resultado));
-                }
-                if(operador.equals("*")){
-                    resultado = Double.parseDouble(reserva) * Double.parseDouble(Resultado.getText().toString());
-                    Resultado.setText(String.valueOf(resultado));
-                }
-                if(operador.equals("^")){
-                    resultado = Math.pow(Double.parseDouble(reserva),Double.parseDouble(Resultado.getText().toString()));
-                    Resultado.setText(String.valueOf(resultado));
-                }
-                if(operador.equals("%")){
-                    resultado = (Double.parseDouble(Resultado.getText().toString())/100) * Double.parseDouble(reserva);
-                    Resultado.setText(String.valueOf(resultado));
+                if(reserva != null && Resultado != null){
+                    mostrar = Resultado.getText().toString();
+                    mostrar = mostrar + "1";
+                    if (operador.equals("-")) {
+                        resultado = Double.parseDouble(reserva) - Double.parseDouble(Resultado.getText().toString());
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                    if (operador.equals("+")) {
+                        resultado = Double.parseDouble(reserva) + Double.parseDouble(Resultado.getText().toString());
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                    if (operador.equals("/")) {
+                        resultado = Double.parseDouble(reserva) / Double.parseDouble(Resultado.getText().toString());
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                    if (operador.equals("*")) {
+                        resultado = Double.parseDouble(reserva) * Double.parseDouble(Resultado.getText().toString());
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                    if (operador.equals("^")) {
+                        resultado = Math.pow(Double.parseDouble(reserva), Double.parseDouble(Resultado.getText().toString()));
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                    if (operador.equals("%")) {
+                        resultado = (Double.parseDouble(Resultado.getText().toString()) / 100) * Double.parseDouble(reserva);
+                        Resultado.setText(String.valueOf(resultado));
+                    }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(),"campo vacio", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });
